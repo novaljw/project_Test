@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1>index.jsp</h1>
+	<a href="./home.do">홈으로 이동</a>
+	
 </body>
 </html>
