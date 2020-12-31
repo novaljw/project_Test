@@ -15,11 +15,10 @@ public class Answerboard_Dto {
 	
 	public Answerboard_Dto() {
 	}
+	
 
-	
-	
 	public Answerboard_Dto(int seq, String id, String title, String content, int refer, int step, int depth,
-			String delflag) {
+			int readcount, String delflag, String regdate) {
 		super();
 		this.seq = seq;
 		this.id = id;
@@ -28,6 +27,7 @@ public class Answerboard_Dto {
 		this.refer = refer;
 		this.step = step;
 		this.depth = depth;
+		this.readcount = readcount;
 		this.delflag = delflag;
 	}
 
