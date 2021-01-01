@@ -6,4 +6,8 @@
  		<typeAlias type="com.min.edu.dto.Answerboard_Dto" alias="ADto"/>
  	</typeAliases>
  
+ 	<mappers>
+ 		<mapper resource="/sqls/sql_AnswerBoard.xml" />
+ 	</mappers>
+ 
 </configuration>
