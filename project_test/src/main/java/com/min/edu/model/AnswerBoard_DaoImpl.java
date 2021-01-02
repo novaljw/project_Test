@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -20,9 +19,9 @@ public class AnswerBoard_DaoImpl implements AnswerBoard_IDao {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public List<Answerboard_Dto> selectDynamic(Map<String, String> map) {
+	public List<Answerboard_Dto> selectDynamic() {
 		List<Answerboard_Dto> list = null;
-		list = sqlSession.selectList(NS+"selectDynamic", map);
+		list = sqlSession.selectList(NS+"selectDynamic");
 		return list;
 	}
 
@@ -45,8 +44,8 @@ public class AnswerBoard_DaoImpl implements AnswerBoard_IDao {
 	}
 
 	@Override
-	public boolean modifyBoard(Map<String, Object> map) {
-		int cnt = sqlSession.update(NS+"modifyBoard", map);
+	public boolean modifyBoard(Answerboard_Dto dto) {
+		int cnt = sqlSession.update(NS+"modifyBoard", dto);
 		return cnt>0?true:false;
 	}
 
