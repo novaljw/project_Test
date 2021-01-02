@@ -7,7 +7,7 @@ import com.min.edu.dto.Answerboard_Dto;
 
 public interface AnswerBoard_IDao {
 
-	public List<Answerboard_Dto> selectDynamic(Map<String, String> map);
+	public List<Answerboard_Dto> selectDynamic();
 	
 	public Answerboard_Dto selectDetailBoard(String seq);
 	
@@ -15,7 +15,7 @@ public interface AnswerBoard_IDao {
 	
 	public boolean replyUpdate(Answerboard_Dto dto);
 	
-	public boolean modifyBoard(Map<String, Object> map);
+	public boolean modifyBoard(Answerboard_Dto dto);
 	
 	public boolean insertBoard(Answerboard_Dto dto);
 	
