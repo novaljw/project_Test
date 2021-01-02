@@ -1,7 +1,11 @@
 package com.min.edu.dto;
 
-public class Answerboard_Dto {
+import java.io.Serializable;
 
+public class Answerboard_Dto implements Serializable{
+
+	private static final long serialVersionUID = -2938255237546148964L;
+	
 	public int seq;
 	public String id;
 	public String title;
