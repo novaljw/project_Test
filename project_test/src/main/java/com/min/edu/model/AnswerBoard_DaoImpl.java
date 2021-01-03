@@ -55,15 +55,10 @@ public class AnswerBoard_DaoImpl implements AnswerBoard_IDao {
 		return cnt>0?true:false;
 	}
 
-	@Override
-	public boolean multiDelete(String[] seqs) {
-		int cnt = sqlSession.update(NS+"multiDelete", seqs);
-		return cnt>0?true:false;
-	}
 
 	@Override
-	public boolean multiDelete2(Map<String, String[]> map) {
-		int cnt = sqlSession.update(NS+"multiDelete2", map);
+	public boolean multiDelete2(Map<String, String[]> seqs) {
+		int cnt = sqlSession.update(NS+"multiDelete2", seqs);
 		return cnt>0?true:false;
 	}
 
