@@ -57,10 +57,7 @@
 		</selectKey>
 	</insert>
 
-	<update id="multiDelete" parameterType="java.lang.String">
-		UPDATE ANSWERBOARD SET DELFLAG = 'Y'
-		WHERE SEQ = #{seq}
-	</update>
+	<!-- 단일 및 다중삭제 -->
 	<update id="multiDelete2" parameterType="java.util.Map">
 		UPDATE ANSWERBOARD SET DELFLAG = 'Y'
 		WHERE SEQ IN

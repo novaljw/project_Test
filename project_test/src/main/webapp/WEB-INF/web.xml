@@ -51,4 +51,18 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
   
+<!--   	<filter> -->
+<!-- 		<filter-name>accessLogFilter</filter-name> -->
+<!-- 		<filter-class>com.min.edu.common.filter.AccessLogFilter</filter-class> -->
+<!-- 	</filter> -->
+<!-- 	<filter-mapping> -->
+<!-- 		<filter-name>accessLogFilter</filter-name> -->
+<!-- 		<url-pattern>/*</url-pattern> -->
+<!-- 	</filter-mapping> -->
+  
+  	<error-page>
+		<error-code>405</error-code>
+		<location>/404.html</location>
+	</error-page>
+  
 </web-app>
