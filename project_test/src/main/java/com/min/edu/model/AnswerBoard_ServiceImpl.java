@@ -21,9 +21,9 @@ public class AnswerBoard_ServiceImpl implements AnswerBoard_IService {
 	private AnswerBoard_IDao iDao;
 	
 	@Override
-	public List<Answerboard_Dto> selectDynamic(Map<String, String> map) {
-		logger.info("전체글 조회 selectDynamic {}",map);
-		return iDao.selectDynamic(map);
+	public List<Answerboard_Dto> selectDynamic() {
+		logger.info("전체글 조회 selectDynamic {}");
+		return iDao.selectDynamic();
 	}
 
 	@Override
@@ -44,9 +44,9 @@ public class AnswerBoard_ServiceImpl implements AnswerBoard_IService {
 	
 
 	@Override
-	public boolean modifyBoard(Map<String, Object> map) {
-		logger.info("글수정 modifyBoard {}",map);
-		return iDao.modifyBoard(map);
+	public boolean modifyBoard(Answerboard_Dto dto) {
+		logger.info("글수정 modifyBoard {}",dto);
+		return iDao.modifyBoard(dto);
 	}
 
 	@Override

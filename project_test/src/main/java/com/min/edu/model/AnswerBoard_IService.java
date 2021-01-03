@@ -7,14 +7,14 @@ import com.min.edu.dto.Answerboard_Dto;
 
 public interface AnswerBoard_IService {
 
-	public List<Answerboard_Dto> selectDynamic(Map<String, String> map);
+	public List<Answerboard_Dto> selectDynamic();
 
 	public Answerboard_Dto selectDetailBoard(String seq);
 	
 	// 답글 입력 트랜젝션
 	public boolean reply(Answerboard_Dto dto);
 	
-	public boolean modifyBoard(Map<String, Object> map);
+	public boolean modifyBoard(Answerboard_Dto dto);
 	
 	public boolean insertBoard(Answerboard_Dto dto);
 	
