@@ -87,24 +87,6 @@ function delreal(){
 	}
 }
 
-// 수정화면으로 이동
-//modify()
-function modify(){
-	var form = document.forms[0];
-	form.action="./board.do?command=modifyForm";
-	form.method = "post";
-	form.submit();
-}
-
-// 답글 화면으로 이동
-function reply(){
-	var form = document.forms[0];
-	form.action="./board.do?command=replyForm";
-	form.method ="post";
-	form.submit();
-}
-
-
 
 // modifyForm.jsp
 // 뒤로가기 backView()
