@@ -18,6 +18,8 @@ margin: 5px 25px; padding: 20px
 <body>
 insertboard
 <h1>글쓰기</h1>
+    <button id="viewlist" type="button" onclick="location.href='./boardList.do'">글목록 보기</button>
+<hr>
 		<form action="./postWrite.do" method="post">
         <div >
               <label>ID</label>
@@ -31,11 +33,11 @@ insertboard
             <label>내 용</label>
             <textarea name="content" rows="10" cols="50" placeholder="내용을 입력하세요" required></textarea>
         </div>
+        <hr>
     <input id="sub" type="submit" value="글등록" >
     
     </form>
     
-    <hr>
-    <button id="viewlist" type="button" onclick="location.href='./boardList.do'">글목록 보기</button>
+    
 </body>
 </html>
