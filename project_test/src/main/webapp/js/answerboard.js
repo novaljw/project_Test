@@ -74,12 +74,12 @@ function checkAll(bool){
 }
 
 // detailBoard.jsp
-// DB삭제 기능 delreal()
+// 삭제 기능
 function delreal(){
-	var con = confirm("선택된 글이 DB에서 삭제 됩니다.");
+	var con = confirm("선택된 글이 삭제 됩니다.");
 	if(con){
 		var form = document.forms[0];
-		form.action = "./board.do?command=deleteBoard";
+		form.action = "./DeleteBoard.do";
 		form.method = "post";
 		form.submit();
 	}else{
@@ -88,25 +88,7 @@ function delreal(){
 }
 
 
-// modifyForm.jsp
-// 뒤로가기 backView()
-function backView(){
-	history.back(-1);
-}
 
-
-// replyForm.jsp
-// contentCheck()
-function contentCheck(){
-	var obj1 = document.getElementById("hideContent").value;
-	var obj2 = document.getElementById("txtArea").value;
-	var obj3 = obj2.replace("원본글>","");
-//	alert(obj3);
-	if(obj1 == obj3){
-		document.getElementById("txtArea").value="";
-		document.getElementById("conTxt").innerHTML = "내용<br>작성중";
-	}
-}
 
 
 
