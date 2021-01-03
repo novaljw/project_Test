@@ -24,7 +24,7 @@
 	 <h1>boardList</h1>
 	 <h1>전체글 보기</h1>
 	 <div id=container>
-	 <form action="./board.do" method="post" onsubmit="return chsSubmit()">
+	 <form action="./multiDel.do" method="post" onsubmit="return chsSubmit()">
 	 
 	 <table border="1">
 		<tr>
