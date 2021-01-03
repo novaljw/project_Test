@@ -18,8 +18,7 @@ public interface AnswerBoard_IService {
 	
 	public boolean insertBoard(Answerboard_Dto dto);
 	
-	public boolean multiDelete(String[] seqs);
 
-	public boolean multiDelete2(Map<String, String[]> map);
+	public boolean multiDelete2(Map<String, String[]> seqs);
 	
 }
