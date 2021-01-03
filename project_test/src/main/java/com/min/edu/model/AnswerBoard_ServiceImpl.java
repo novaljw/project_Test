@@ -55,16 +55,11 @@ public class AnswerBoard_ServiceImpl implements AnswerBoard_IService {
 		return iDao.insertBoard(dto);
 	}
 
-	@Override
-	public boolean multiDelete(String[] seqs) {
-		logger.info("다중삭제",seqs);
-		return iDao.multiDelete(seqs);
-	}
 
 	@Override
-	public boolean multiDelete2(Map<String, String[]> map) {
-		logger.info("다중삭제2 multiDelete2 {}",map);
-		return iDao.multiDelete2(map);
+	public boolean multiDelete2(Map<String, String[]> seqs) {
+		logger.info("다중삭제2 multiDelete2 {}",seqs);
+		return iDao.multiDelete2(seqs);
 	}
 
 	
