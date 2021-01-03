@@ -31,7 +31,7 @@ insertboard
         </div>
         <div >
             <label>내 용</label>
-            <textarea name="content" rows="10" cols="50" placeholder="내용을 입력하세요" required></textarea>
+            <textarea style="resize: none;" name="content" rows="10" cols="60" placeholder="내용을 입력하세요" required></textarea>
         </div>
         <hr>
     <input id="sub" type="submit" value="글등록" >

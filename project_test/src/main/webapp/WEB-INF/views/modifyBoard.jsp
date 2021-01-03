@@ -19,6 +19,8 @@ margin: 5px 25px; padding: 20px
 modifyBoard<br>
 seq = ${seq}
 <h1>글 수정하기</h1>
+		<button id="viewlist" type="button" onclick="location.href='./boardList.do'">글목록 보기</button>
+	<hr>
 		<form action="./modifyRegist.do" 
 		method="post">
 		 <div>
@@ -34,7 +36,7 @@ seq = ${seq}
         </div>
         <div >
             <label>내 용</label>
-            <textarea name="content" rows="10" cols="50" placeholder="${content}" required></textarea>
+            <textarea style="resize: none;" name="content" rows="10" cols="60" placeholder="${content}" required></textarea>
         </div>
    
     <input id="sub" type="submit" value="수정글 등록" >
@@ -42,7 +44,7 @@ seq = ${seq}
     </form>
     
     <hr>
-    <button id="viewlist" type="button" onclick="location.href='./boardList.do'">글목록 보기</button>
+    
 	<button id="back" onclick="history.back(-1)">뒤로 가기</button>
 
 </body>

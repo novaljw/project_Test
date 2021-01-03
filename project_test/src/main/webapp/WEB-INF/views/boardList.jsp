@@ -2,14 +2,16 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>       
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>       
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>전체글조회</title>
 <style type="text/css">
-	.insert{
+	.insert, .del{
 		border: 1px solid black;
 		font-size: 20px;
 		font-weight: bold;
@@ -20,11 +22,13 @@
 	
 </script>
 <body>
+<jsp:useBean id="pho" class="com.min.edu.usebean.ReplyPhoto" scope="page"/>
 	 <h1>boardList</h1>
 	 <h1>전체글 보기</h1>
 	 <div id=container>
 	 <table border="1">
 		<tr>
+			<th><input type="checkbox"  id="allCheck" onclick="checkAll(this.checked)"> </th>
 			<th>SEQ</th>
 			<th>ID</th>
 			<th>제 목</th>
@@ -34,9 +38,34 @@
 		</tr>
 		<c:forEach varStatus="vs" items="${lists}" var="dto">
 			<tr>
+				<td><input type="checkbox" name="ch" value="${dto.getSeq()}"> </td>
 				<td>${dto.seq}</td>
 				<td>${dto.id}</td>
-				<td><a href="./detailboard.do?seq=${dto.getSeq()}">${dto.title}</a></td>
+				<td>
+						<c:choose>
+							<c:when test="${dto.delflag eq 'Y' }">
+								관리자에의해 삭제되었습니다.
+							</c:when>
+							<c:otherwise>
+							<!-- 답글이라면 이미지처리 -->
+<%-- 							<%=photo(${dto.depth}) %> --%>
+							<jsp:setProperty property="depth" name="pho" value="${dto.depth}"/>
+							<jsp:getProperty property="photo" name="pho"/>
+							
+							<a title="${dto.title}" href="./detailboard.do?seq=${dto.seq}">
+								<c:choose>
+									<c:when test="${fn:length(dto.title) >12}">
+										${fn:substring(dto.title,0,8)}...
+									</c:when>
+									<c:otherwise>
+										${dto.title}
+									</c:otherwise>
+								</c:choose>
+							</a>	
+							</c:otherwise>
+						</c:choose> 
+					</td>
+							
 				<td>${dto.readcount}</td>
 				<td>${dto.regdate}</td>
 				<td>${dto.delflag}</td>
@@ -48,6 +77,7 @@
 	<hr>
 	<div>
 		<input type="button" class="insert" value="글쓰기" onclick="location.href='./insertboard.do'"> 
+		<input class="del" type="submit" value="다중삭제">
 	</div>
 </body>
 </html>
