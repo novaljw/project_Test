@@ -1,6 +1,8 @@
 package com.min.edu.ctrl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +21,7 @@ public class AnswerBoard_Controller {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+	//TODO : 변수명을 쓸 때는 정확한 용도와 출처를 반영한 이름을 쓰자
 	@Autowired 
 	private AnswerBoard_IService aiService;
 	
@@ -28,6 +31,7 @@ public class AnswerBoard_Controller {
 		List<Answerboard_Dto> lists = aiService.selectDynamic();
 		model.addAttribute("lists", lists);
 		
+		//TODO : 로거 찍기 
 		System.out.println("AnswerBoard_Controller 작동 - boardList 이동");
 		return "boardList";
 	}
@@ -88,18 +92,42 @@ public class AnswerBoard_Controller {
 	@RequestMapping(value = "/modifyRegist.do", method = RequestMethod.POST)
 	public String modifyRegist(Answerboard_Dto dto) {
 		logger.info("welcome modifyRegist.do : \t {}" , dto);
-		boolean isc=  aiService.modifyBoard(dto);
 		
-		return isc?"redirect:/detailboard.do?seq="+dto.getSeq():"redirect:/modifyBoard.do";
+		return aiService.modifyBoard(dto)?
+		"redirect:/detailboard.do?seq="+dto.getSeq():"redirect:/modifyBoard.do";
 	}
 	
 	// 답글 입력
 	@RequestMapping(value = "/reply.do", method = RequestMethod.POST)
 	public String reply(Answerboard_Dto dto) {
 		logger.info("welcome reply.do : \t {}" , dto);
-		boolean isc=  aiService.reply(dto);
 		
-		return isc?"redirect:/boardList.do":"redirect:/detailboard.do?seq="+dto.getSeq();
+		return aiService.reply(dto)?
+		"redirect:/boardList.do":"redirect:/detailboard.do?seq="+dto.getSeq();
 //		return null;
 	}
+	
+	// 다중삭제 multiDel
+	@RequestMapping(value = "/multiDel.do", method = RequestMethod.POST)
+	public String multiDel(@RequestParam String[] ch) { 
+		logger.info("welcome DeleteBoard.do : \t {}", ch );
+		
+		Map<String, String[]> map = new HashMap<String, String[]>();
+		map.put("seqs", ch);
+		
+		for (String string : ch) {
+			System.out.println("전달받은 값 : " + string);
+		}
+		aiService.multiDelete2(map);
+		
+		return "redirect:/boardList.do";
+	}
+	
+	// 단일 삭제 DeleteBoard
+	@RequestMapping(value = "/DeleteBoard.do", method = RequestMethod.POST)
+	public String DeleteBoard(@RequestParam String[] seq) { 
+		return multiDel(seq);
+	}
+	
+	
 }
