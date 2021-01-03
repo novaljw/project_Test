@@ -9,11 +9,12 @@
 .center{
 margin: 5px 25px; padding: 20px
 }
- #viewlist, #modify, #reply{
+ #viewlist, #modify, #reply, #del{
  	font-size: large;
  	border: 1px solid black;
  }
 </style>
+
 </head>
 <body>
 <h1>detailboad</h1>
@@ -47,7 +48,9 @@ margin: 5px 25px; padding: 20px
 	<form action="./modifyBoard.do?seq=${detail.getSeq()}&content=${detail.getContent()}&id=${detail.getId()}&title=${detail.getTitle()}" method="post">
 	 <input id="modify" type="submit" value="글 수정하기" >
 	</form>
-	
+	<p>
+	 <input id="del" type="submit" value="글 삭제하기" >
+	</p>
 	<!-- 답글  -->
 	<hr>
 <%-- 	<form action="./reply.do?seq=${detail.getSeq()}&content=${detail.getContent()}&id=${detail.getId()}&title=${detail.getTitle()}" method="post"> --%>

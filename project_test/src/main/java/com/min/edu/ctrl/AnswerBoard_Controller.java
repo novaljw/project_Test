@@ -1,7 +1,6 @@
 package com.min.edu.ctrl;
 
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,7 +55,7 @@ public class AnswerBoard_Controller {
 		System.out.println(dto.getId());
 		System.out.println(dto.getTitle());
 		System.out.println(dto.getContent());
-		boolean isc = aiService.insertBoard(dto);
+		aiService.insertBoard(dto);
 		
 		System.out.println("AnswerBoard_Controller 작동 - postWrite 글등록");
 		return "redirect:/detailboard.do?seq="+dto.getSeq();

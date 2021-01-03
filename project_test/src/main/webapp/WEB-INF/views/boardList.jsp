@@ -18,14 +18,14 @@
 	}
 </style>
 </head>
-<script type="text/javascript">
-	
-</script>
+<script type="text/javascript" src="./js/answerboard.js"></script>
 <body>
 <jsp:useBean id="pho" class="com.min.edu.usebean.ReplyPhoto" scope="page"/>
 	 <h1>boardList</h1>
 	 <h1>전체글 보기</h1>
 	 <div id=container>
+	 <form action="./board.do" method="post" onsubmit="return chsSubmit()">
+	 
 	 <table border="1">
 		<tr>
 			<th><input type="checkbox"  id="allCheck" onclick="checkAll(this.checked)"> </th>
@@ -73,11 +73,13 @@
 			</tr>
 		</c:forEach>
 	</table>
-	</div>
 	<hr>
 	<div>
 		<input type="button" class="insert" value="글쓰기" onclick="location.href='./insertboard.do'"> 
 		<input class="del" type="submit" value="다중삭제">
 	</div>
+	</form>
+	</div>
+	
 </body>
 </html>
