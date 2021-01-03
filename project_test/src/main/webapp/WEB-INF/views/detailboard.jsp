@@ -16,8 +16,9 @@ margin: 5px 25px; padding: 20px
 </style>
 
 </head>
+<script type="text/javascript" src="./js/answerboard.js"></script>
 <body>
-<h1>detailboad</h1>
+<h1>detailboard</h1>
 <br>
 <br>
 <h1>상세글 보기</h1>
@@ -46,14 +47,17 @@ margin: 5px 25px; padding: 20px
 	</table>
 	<hr>
 	<form action="./modifyBoard.do?seq=${detail.getSeq()}&content=${detail.getContent()}&id=${detail.getId()}&title=${detail.getTitle()}" method="post">
+	 <input type="hidden" name="seq" value="${detail.getSeq()}">
 	 <input id="modify" type="submit" value="글 수정하기" >
 	</form>
+	
+	<!-- onclick으로 자바스크립트 처리 -->
 	<p>
-	 <input id="del" type="submit" value="글 삭제하기" >
+	 <button id="del" onclick="delreal()">글 삭제하기</button>
 	</p>
+	
 	<!-- 답글  -->
 	<hr>
-<%-- 	<form action="./reply.do?seq=${detail.getSeq()}&content=${detail.getContent()}&id=${detail.getId()}&title=${detail.getTitle()}" method="post"> --%>
 	<form action="./reply.do?seq=${detail.getSeq()}" method="post">
 		<div >
               <label>ID</label>
