@@ -21,8 +21,12 @@
 <script type="text/javascript" src="./js/answerboard.js"></script>
 <body>
 <jsp:useBean id="pho" class="com.min.edu.usebean.ReplyPhoto" scope="page"/>
-	 <h1>boardList</h1>
-	 <h1>전체글 보기</h1>
+	 boardList
+	 <p><h1>전체글 보기</h1><p>
+	 
+	<a href="./memberListMAV.do"><button>회원리스트</button></a>
+	<a href="./logout.do"><button>로그아웃</button></a>
+	
 	 <div id=container>
 	 <form action="./multiDel.do" method="post" onsubmit="return chsSubmit()">
 	 
