@@ -10,12 +10,11 @@
 <title>전체글 보기</title>
 </head>
 <body>
-<%-- <%@include file="./boardTopMenu.jsp" %> --%>
 
 <div id='container' class="container">
-	<table class="table table-hover">
+	<table border="1">
 		<thead>
-			<tr class="danger">
+			<tr>
 				<th>연번</th>
 				<th>아이디</th>
 				<th>이름</th>
@@ -33,16 +32,17 @@
 				<td>${user.delflag}</td>
 				<td>${user.auth == "U"?"사용자":"관리자"}</td>
 				<td>
-					<fmt:parseDate var="dateConvert" 
+ 					<fmt:parseDate var="dateConvert" 
 					value="${user.regdate}" pattern="yyyy-MM-dd HH:mm:ss"/>
-					<fmt:formatDate value="${dateConvert}" pattern="yyyy/MM/dd"/>					
+					<fmt:formatDate value="${dateConvert}" pattern="yyyy/MM/dd"/>			
 				</td>
 			</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	<hr>
 	<div>
-		<input class="btn btn-warning btn-block" type="button" value="돌아가기" onclick="history.back(-1)">
+		<input style="font-size: large;" type="button" value="돌아가기" onclick="history.back(-1)">
 	</div>
 </div>
 
