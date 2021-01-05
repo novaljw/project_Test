@@ -60,8 +60,8 @@ margin: 5px 25px; padding: 20px
 	<hr>
 	<form action="./reply.do?seq=${detail.getSeq()}" method="post">
 		<div >
-              <label>ID</label>
-            <input type="text"  name="id" placeholder="ID" required>
+            <label>작성자 ID : </label>
+           	<p>${sessionScope.mem.id}</p>
         </div>
         <div >
             <label>제 목</label>
