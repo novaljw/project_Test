@@ -20,7 +20,7 @@
 
 
 	function loginCheck(){
-		var id = document.getElementById("InputId").value; // $("#InputId").val()
+		var id = document.getElementById("InputId").value; 
 		var pw = document.getElementById("InputPw").value;
 		var frm = document.frm;
 		
@@ -39,10 +39,9 @@
 		}else{
 			$.ajax({
 				type:"post",
-// 				url:"./loginCheckText.do",
-				url:"./loginCheckMap.do", // Jackson mapper 처리 하는 Controller
+				url:"./loginCheckMap.do", 
 				data:"id="+id+"&pw="+pw,
-				success: function(msg){ //  Map으로 반환해줌 ["isc","성공"]
+				success: function(msg){ 
 // 					alert(msg.isc);
 					if(msg.isc == "성공"){
 						frm.submit();
@@ -63,7 +62,6 @@
 <body>
 
 
-<!-- Ajax를 통신을 통해서 로그인처리 할것임 -->
 <div id="container">
 	<div id="title">Together Login</div>
 	<div id="id">아이디</div>
