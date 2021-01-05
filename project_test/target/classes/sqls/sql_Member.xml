@@ -3,8 +3,8 @@
 <mapper namespace="com.min.edu.model.Member_IDao">
 
 	<select id="memberList" resultType="MemberDto">
-		SELECT ID, NAME, AUTH, DELFLAG , 
-		TO_CHAR(REGDATE,'YYYY-MM-DD')
+		SELECT ID, NAME, AUTH, DELFLAG , REGDATE
+<!-- 		TO_CHAR(REGDATE,'YYYY-MM-DD') -->
 		FROM "MEMBER" m
 	</select>
 
