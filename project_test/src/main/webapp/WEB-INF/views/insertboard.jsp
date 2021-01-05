@@ -22,8 +22,8 @@ insertboard
 <hr>
 		<form action="./postWrite.do" method="post">
         <div >
-              <label>ID</label>
-            <input type="text"  name="id" placeholder="ID" required>
+              <label>작성자 ID : </label>
+              <p>${sessionScope.mem.id}</p>
         </div>
         <div >
             <label>제 목</label>
