@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.min.edu.dto.Answerboard_Dto;
+import com.min.edu.dto.Member_Dto;
 import com.min.edu.model.AnswerBoard_IService;
 
 @Controller
@@ -55,10 +58,13 @@ public class AnswerBoard_Controller {
 	
 	// 작성글 등록
 	@RequestMapping(value = "/postWrite.do", method = RequestMethod.POST)
-	public String postWrite(Answerboard_Dto dto) {
+	public String postWrite(Answerboard_Dto dto, HttpSession session) {
 		System.out.println(dto.getId());
 		System.out.println(dto.getTitle());
 		System.out.println(dto.getContent());
+		Member_Dto mDto = (Member_Dto)session.getAttribute("mem");
+		dto.setId(mDto.getId());
+		
 		aiService.insertBoard(dto);
 		
 		System.out.println("AnswerBoard_Controller 작동 - postWrite 글등록");
@@ -90,8 +96,12 @@ public class AnswerBoard_Controller {
 	
 	// 수정글 등록
 	@RequestMapping(value = "/modifyRegist.do", method = RequestMethod.POST)
-	public String modifyRegist(Answerboard_Dto dto) {
+	public String modifyRegist(Answerboard_Dto dto, HttpSession session) {
 		logger.info("welcome modifyRegist.do : \t {}" , dto);
+		
+		// 로그인된 사용자 정보 
+		Member_Dto mDto = (Member_Dto)session.getAttribute("mem");
+		dto.setId(mDto.getId());
 		
 		return aiService.modifyBoard(dto)?
 		"redirect:/detailboard.do?seq="+dto.getSeq():"redirect:/modifyBoard.do";
@@ -99,12 +109,15 @@ public class AnswerBoard_Controller {
 	
 	// 답글 입력
 	@RequestMapping(value = "/reply.do", method = RequestMethod.POST)
-	public String reply(Answerboard_Dto dto) {
+	public String reply(Answerboard_Dto dto, HttpSession session) {
 		logger.info("welcome reply.do : \t {}" , dto);
+		
+		// 로그인된 사용자 정보 
+		Member_Dto mDto = (Member_Dto)session.getAttribute("mem");
+		dto.setId(mDto.getId());
 		
 		return aiService.reply(dto)?
 		"redirect:/boardList.do":"redirect:/detailboard.do?seq="+dto.getSeq();
-//		return null;
 	}
 	
 	// 다중삭제 multiDel
