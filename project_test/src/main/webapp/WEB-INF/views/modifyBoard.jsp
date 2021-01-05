@@ -27,8 +27,8 @@ seq = ${seq}
 		 	<input type="hidden" name="seq" value="${seq}">
 		 </div>
         <div >
-              <label>ID</label>
-            <input type="text"  name="id" value="${id}" readonly>
+             <label>작성자 ID : </label>
+              <p>${sessionScope.mem.id}</p>
         </div>
         <div >
             <label>제 목</label>
